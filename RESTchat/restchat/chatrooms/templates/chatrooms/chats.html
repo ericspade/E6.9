@@ -1,0 +1,19 @@
+{% extends 'common/index.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="p-10 lg:p-20 text-center">
+    <h1 class="text-3xl lg:text-6xl text-white">Каналы:</h1>
+</div>
+
+<div class="p-10 lg:p-20 items-center">
+    {% for chat in chats %}
+        <div class="p-4 bg-white shadow rounded-xl text-center">
+            <h2 class="mb-5 text-2xl font-semibold">{{ chat.name }}</h2>
+            <a href ="{% url 'chatroom' chat.slug %}" class="px-5 py-3 rounded-xl text-white bg-teal-800 hover:bg-teal-700">Войти</a>
+            <a href ="{% url 'delete chat' chat.slug %}" class="px-5 py-3 rounded-xl text-white bg-teal-800 hover:bg-teal-700">Удалить чат</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

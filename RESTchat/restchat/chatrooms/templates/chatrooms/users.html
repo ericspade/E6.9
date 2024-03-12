@@ -1,0 +1,15 @@
+{% extends 'common/index.html' %}
+
+{% block title %}Наши участники: {% endblock %}
+
+{% block content %}
+
+<div class="p-10 lg:p-20 items-center">
+    {% for user in users %}
+        <div class="p-4 bg-white shadow rounded-xl text-center">
+            <h2 class="mb-5 text-2xl font-semibold">{{ user.username }}</h2>
+            <a href ="{% url 'chatroom' user.username %}" class="px-5 py-3 rounded-xl text-white bg-teal-800 hover:bg-teal-700">Отправить сообщение</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

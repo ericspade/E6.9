@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color:orange;">
+<div class="header">
+	<link rel="stylesheet" href="css/styles.css">
+        <div class="inner-header">
+            <ul class="navigation">
+                {% if request.user.is_authenticated %}
+                    <a href="/chats/"><li>Все чаты</li></a>
+                    <a href="/userchats/"><li>Ваши чаты</li></a>
+                    <a href="/users/"><li>Участники</li></a>
+                    <a href="/signout/"><li>Выйти</li></a>
+                    <a href="/api/post/"><li>Создать чат</li></a>
+                    <a href="/api/changepassword/"><li>Изменить пароль</li></a>
+                    <a href="/api/changeusername/"><li>Изменить имя</li></a>
+                {% else %}
+                    <a href="/signin/"><li>Войти</li></a>
+                    <a href="/signup/"><li>Создать аккаунт</li></a>
+                    <a href="/"><li>Главная страница</li></a>
+                {% endif %}
+            </ul>
+            <div class="logo-container">
+                <h1 style="text-align:center;">{% block title %}{% endblock %}</h1>
+            </div>
+        </div></div>
+<div class="p-10 lg:p-20 text-center">
+    <h1 class="text-3xl lg:text-6xl text-white"></h1>
+</div>
+
+{% block content %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+</body>
+</html>
